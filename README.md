@@ -295,17 +295,17 @@ The implementation will be developed incrementally.
 
 ### Phase 1: State management
 
-- [ ] Define the notification data structure.
-- [ ] Define the initial reducer state.
-- [ ] Define action types and payload contracts.
-- [ ] Implement notification creation.
-- [ ] Enforce the maximum of three visible notifications.
-- [ ] Implement FIFO queue insertion.
-- [ ] Implement dismissal by ID.
-- [ ] Promote the oldest pending notification after a visible dismissal.
-- [ ] Handle duplicate IDs safely.
-- [ ] Keep reducer operations pure.
-- [ ] Test reducer transitions independently.
+- [^] Define the notification data structure.
+- [^] Define the initial reducer state.
+- [^] Define action types and payload contracts.
+- [^] Implement notification creation.
+- [^] Enforce the maximum of three visible notifications.
+- [^] Implement FIFO queue insertion.
+- [^] Implement dismissal by ID.
+- [^] Promote the oldest pending notification after a visible dismissal.
+- [^] Handle duplicate IDs safely.
+- [^] Keep reducer operations pure.
+- [^] Test reducer transitions independently.
 
 ### Phase 2: Provider and public API
 
