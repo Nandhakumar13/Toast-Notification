@@ -8,11 +8,14 @@ const ToastMsg = ({isToastShow, message,msgType}) => {
     },[isToastShow])
 
     const closeToast = () => {
+        // isToastShow = false;
         let timer =  setTimeout(() => {
-            isToastShow = !isToastShow;
+            isToastShow = false;
         },2000)
 
-        return () => clearTimeout(timer);
+        timer();
+
+        // return () => clearTimeout(timer);
 
     }
   return (

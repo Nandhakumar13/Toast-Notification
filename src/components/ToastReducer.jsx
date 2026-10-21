@@ -69,17 +69,9 @@ const toastReducer = function(state,action){
 }
 
 // context
-export const ToastContext = createContext();
+// export const ToastContext = createContext();
 
 
-// provider
-export function ToastProvider({children}){
-    const[state,dispatch] = useReducer(toastReducer,initialState)
-    return(
-        <ToastContext.Provider value={{state,dispatch}}>
-            {children}
-        </ToastContext.Provider>
-    )
-}
+
 
 

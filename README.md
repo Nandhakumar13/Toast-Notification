@@ -309,16 +309,16 @@ The implementation will be developed incrementally.
 
 ### Phase 2: Provider and public API
 
-- [ ] Create the Toast Provider.
-- [ ] Integrate the reducer using `useReducer`.
-- [ ] Create separate API and state contexts.
-- [ ] Implement `success`, `error`, `warning`, and `info` methods.
-- [ ] Implement `dismiss(id)`.
-- [ ] Generate unique IDs outside the reducer.
-- [ ] Return the generated ID from creation methods.
-- [ ] Validate messages and notification options.
-- [ ] Provide a clear error when the hook is used outside the provider.
-- [ ] Keep API methods and API context values stable where appropriate.
+- [^] Create the Toast Provider.
+- [^] Integrate the reducer using `useReducer`.
+- [^] Create separate API and state contexts.
+- [^] Implement `success`, `error`, `warning`, and `info` methods.
+- [^] Implement `dismiss(id)`.
+- [^] Generate unique IDs outside the reducer.
+- [^] Return the generated ID from creation methods.
+- [^] Validate messages and notification options.
+- [^] Provide a clear error when the hook is used outside the provider.
+- [^] Keep API methods and API context values stable where appropriate.
 
 ### Phase 3: UI components
 
