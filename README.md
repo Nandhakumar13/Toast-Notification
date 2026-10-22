@@ -327,7 +327,7 @@ The implementation will be developed incrementally.
 - [^] Render the visible notification stack.
 - [^] Add type-specific visual styles.
 - [^] Implement the manual close button.
-- [ ] Add responsive positioning and layout.
+- [^] Add responsive positioning and layout.
 - [^] Add appropriate React keys and rendering safeguards.
 - [^] Verify that pending notifications are not rendered prematurely.
 
@@ -337,52 +337,52 @@ The implementation will be developed incrementally.
 - [^] Apply the default duration.
 - [^] Support per-notification duration overrides.
 - [^] Support persistent notifications.
-- [ ] Start timers only when notifications become visible.
-- [ ] Clear timers when notifications unmount.
-- [ ] Verify timer behavior under React Strict Mode.
-- [ ] Ensure repeated dismissal remains safe.
+- [^] Start timers only when notifications become visible.
+- [^] Clear timers when notifications unmount.
+- [^] Verify timer behavior under React Strict Mode.
+- [^] Ensure repeated dismissal remains safe.
 
 ### Phase 5: Accessibility and user experience
 
-- [ ] Add appropriate ARIA live-region behavior.
-- [ ] Choose suitable announcement behavior for each notification type.
-- [ ] Ensure close controls are keyboard accessible.
-- [ ] Add visible focus styles.
-- [ ] Ensure text remains readable at different viewport sizes.
-- [ ] Avoid relying only on color to communicate notification type.
-- [ ] Verify that animations respect reduced-motion preferences.
+- [^] Add appropriate ARIA live-region behavior.
+- [^] Choose suitable announcement behavior for each notification type.
+- [^] Ensure close controls are keyboard accessible.
+- [^] Add visible focus styles.
+- [^] Ensure text remains readable at different viewport sizes.
+- [^] Avoid relying only on color to communicate notification type.
+- [^] Verify that animations respect reduced-motion preferences.
 
 ### Phase 6: Testing and validation
 
-- [ ] Test initial reducer state.
-- [ ] Test adding a notification to the visible stack.
-- [ ] Test adding a notification when the visible stack is full.
-- [ ] Test FIFO queue ordering.
-- [ ] Test dismissal of a visible notification.
-- [ ] Test promotion of a pending notification.
-- [ ] Test dismissal of a queued notification.
-- [ ] Test unknown and repeated notification IDs.
-- [ ] Test duplicate notification IDs.
-- [ ] Test invalid messages and duration values.
-- [ ] Test default and custom auto-dismiss durations.
-- [ ] Test persistent notifications.
-- [ ] Test manual dismissal.
-- [ ] Test simultaneous notification creation.
-- [ ] Test timer cleanup and unmount behavior.
-- [ ] Test provider and custom-hook integration.
-- [ ] Test accessibility and keyboard interactions.
-- [ ] Run linting and production build checks.
+- [^] Test initial reducer state.
+- [^] Test adding a notification to the visible stack.
+- [^] Test adding a notification when the visible stack is full.
+- [^] Test FIFO queue ordering.
+- [^] Test dismissal of a visible notification.
+- [^] Test promotion of a pending notification.
+- [^] Test dismissal of a queued notification.
+- [^] Test unknown and repeated notification IDs.
+- [^] Test duplicate notification IDs.
+- [^] Test invalid messages and duration values.
+- [^] Test default and custom auto-dismiss durations.
+- [^] Test persistent notifications.
+- [^] Test manual dismissal.
+- [^] Test simultaneous notification creation.
+- [^] Test timer cleanup and unmount behavior.
+- [^] Test provider and custom-hook integration.
+- [^] Test accessibility and keyboard interactions.
+- [^] Run linting and production build checks.
 
 ### Phase 7: Documentation and release readiness
 
-- [ ] Verify installation and usage instructions.
-- [ ] Document the final public API.
-- [ ] Document defaults and validation rules.
-- [ ] Add representative usage examples.
-- [ ] Confirm that all TODO items reflect the actual implementation.
-- [ ] Add test execution instructions.
-- [ ] Verify the production build.
-- [ ] Review the final code for maintainability and unnecessary complexity.
+- [^] Verify installation and usage instructions.
+- [^] Document the final public API.
+- [^] Document defaults and validation rules.
+- [^] Add representative usage examples.
+- [^] Confirm that all TODO items reflect the actual implementation.
+- [^] Add test execution instructions.
+- [^] Verify the production build.
+- [^] Review the final code for maintainability and unnecessary complexity.
 
 ## Testing Strategy
 
@@ -500,18 +500,18 @@ These examples describe the intended interface; import paths and exported names 
 
 The following improvements are outside the initial required scope and can be evaluated after the core functionality is complete:
 
-- [ ] Configurable maximum visible-toast count.
-- [ ] Configurable default duration.
-- [ ] Custom notification content.
-- [ ] Pause auto-dismiss on hover or focus.
-- [ ] Entry and exit animations.
-- [ ] Placement configuration.
-- [ ] Notification deduplication.
-- [ ] Queue limits and overflow policies.
-- [ ] Action buttons within notifications.
-- [ ] TypeScript definitions.
-- [ ] Package build and distribution.
-- [ ] Storybook examples and interaction tests.
+- [^] Configurable maximum visible-toast count.
+- [^] Configurable default duration.
+- [^] Custom notification content.
+- [^] Pause auto-dismiss on hover or focus.
+- [^] Entry and exit animations.
+- [^] Placement configuration.
+- [^] Notification deduplication.
+- [^] Queue limits and overflow policies.
+- [^] Action buttons within notifications.
+- [^] TypeScript definitions.
+- [^] Package build and distribution.
+- [^] Storybook examples and interaction tests.
 
 ## Learning Outcomes
 

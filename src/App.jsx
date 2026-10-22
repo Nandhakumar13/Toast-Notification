@@ -1,41 +1,55 @@
-import { useState } from "react";
-import "./App.css";
-import ToastMsg from "./components/ToastMsg";
+
+import { useContext } from "react";
+import { ToastAPIContext } from "./components/ToastContext";
 
 function App() {
-  const[isToastShow, setToastShow] = useState(false);
-  const[toastMsg, setToastMsg] = useState(null);
-  const[msgType, setMsgType] = useState(null);
-  const toastHandler = (status) => {
-      setToastShow(true);
+  const toast = useContext(ToastAPIContext);
 
-      if(status == "success"){
-        setToastMsg("Success Message !!!");
-        setMsgType("success");
-      }
-      else if(status == "error"){
-        setToastMsg("Error Message !!!");
-        setMsgType("error");
-      }
-      else{
-        setToastMsg("Warning Message !!!");
-        setMsgType("warning");
-      }
+  if (!toast) {
+    throw new Error("App must be used within ToastProvider");
   }
-  return (
-    <>
-      <div className="container">
-        <div className="btn-container">
-          <button onClick={()=> toastHandler('success')} className="btn success-btn">Success</button>
-          <button onClick={()=> toastHandler('error')} className="btn error-btn">Error</button>
-          <button onClick={()=> toastHandler('warn')} className="btn warning-btn">Warning</button>
-        </div>
 
-        {
-         isToastShow && <ToastMsg isToastShow={isToastShow} message={toastMsg} msgType={msgType}></ToastMsg>
+  return (
+    <div>
+      <h1>Toast Notification Testing</h1>
+
+      <button onClick={() => toast.success("Saved successfully!")}>
+        Success
+      </button>
+
+      <button onClick={() => toast.error("Something went wrong!")}>
+        Error
+      </button>
+
+      <button onClick={() => toast.warning("Please check your input.")}>
+        Warning
+      </button>
+
+      <button onClick={() => toast.info("You have a new update.")}>
+        Info
+      </button>
+
+      <button
+        onClick={() =>
+          toast.success("This notification stays until dismissed.", {
+            persistent: true,
+          })
         }
-      </div>
-    </>
+      >
+        Persistent Toast
+      </button>
+
+      <button
+        onClick={() => {
+          toast.success("First notification");
+          toast.info("Second notification");
+          toast.warning("Third notification");
+          toast.error("Fourth notification");
+        }}
+      >
+        Test Queue (4 Toasts)
+      </button>
+    </div>
   );
 }
 

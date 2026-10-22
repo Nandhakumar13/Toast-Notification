@@ -1,7 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { ToastAPIContext } from "./ToastContext";
-const Toast = ({ id, messgae, type, duration, persistent }) => {
-  const ToastAPI = useContext(ToastAPIContext);
+import "./toast.css";
+const Toast = ({ id, message, type, duration, persistent }) => {
+
+  const toastAPI = useContext(ToastAPIContext);
 
   if (!toastAPI) {
     throw new Error("Toast must be used within a ToastProvider.");
@@ -28,7 +30,7 @@ const Toast = ({ id, messgae, type, duration, persistent }) => {
       aria-live={type === "error" ? "assertive" : "polite"}
     >
       <span>{message}</span>
-      <button className="toast-close" onClick={dismiss(id)}>
+      <button className="toast-close" onClick={() => dismiss(id)}>
         Close
       </button>
     </div>

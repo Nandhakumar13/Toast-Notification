@@ -3,7 +3,7 @@ import React, { createContext, useReducer, useState } from 'react'
 
 const max_visible_item = 3;
 // initial state
-const initialState = {
+export const initialState = {
     visible:[],
     pending:[]
 }
@@ -11,7 +11,7 @@ const initialState = {
 
 // reducer function
 
-const toastReducer = function(state,action){
+export const toastReducer = function(state,action){
     switch(action.type){
         case 'ADD_TOAST' :
             const toast = action.payload;
