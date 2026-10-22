@@ -1,8 +1,8 @@
-import { createContext, useCallback } from "react";
+import { createContext, useCallback, useMemo,useReducer } from "react";
 import { toastReducer, initialState } from "./ToastReducer";
 
-export const ToastApiContext = createContext();
-export const ToastStateContext = createContext();
+export const ToastAPIContext = createContext(null);
+export const ToastStateContext = createContext(null);
 
 const defaultDuration = 5000; // 5seconds
 const msgTypes = new Set(["success", "error", "warning", "info"]);
@@ -19,7 +19,7 @@ export function ToastProvider({ children }) {
 
     if (
       options.duration !== undefined &&
-      (options.duration !== "number" ||
+      (typeof options.duration !== "number" ||
         !Number.isFinite(options.duration) ||
         options.duration <= 0)
     ) {
@@ -27,16 +27,16 @@ export function ToastProvider({ children }) {
     }
 
     if (
-      options.persistant !== undefined &&
-      typeof options.persistant !== "boolean"
+      options.persistent !== undefined &&
+      typeof options.persistent !== "boolean"
     ) {
-      throw new Error("Persistant value should contain boolean value");
+      throw new Error("persistent value should contain boolean value");
     }
   }, []);
 
   // toast creation
-  const createToast = useCallback(() => {
-    (type, message, options = {}) => {
+  const createToast = useCallback((type,message,options = {}) => {
+   
       if (!msgTypes.has(type)) {
         throw new Error(`Unsupported toast type: ${type}`);
       }
@@ -50,40 +50,39 @@ export function ToastProvider({ children }) {
         type,
         message: message.trim(),
         duration: options.duration ?? defaultDuration,
-        persistant: options.persistant ?? false,
+        persistent: options.persistent ?? false,
       };
 
       dispatch({ type: "ADD_TOAST", payload: toast });
 
       return id;
-    };
   }, [validateNotification]);
 
   // individual notfication event handlers
   const success = useCallback(
     (message, options) => {
-      createToast("success", message, options);
+      return createToast("success", message, options);
     },
     [createToast],
   );
 
   const error = useCallback(
     (message, options) => {
-      createToast("error", message, options);
+      return createToast("error", message, options);
     },
     [createToast],
   );
 
   const warning = useCallback(
     (message, options) => {
-      createToast("warning", message, options);
+      return createToast("warning", message, options);
     },
     [createToast],
   );
 
   const info = useCallback(
     (message, options) => {
-      createToast("info", message, options);
+      return createToast("info", message, options);
     },
     [createToast],
   );
@@ -91,14 +90,14 @@ export function ToastProvider({ children }) {
   // toast deletion
 
   const dismiss = useCallback((id) => {
-    if (typeof id !== "string" || id.length === 0) {
+    if (typeof id !== "string" || id.trim().length === 0) {
       throw new Error("A valid toast ID is required");
     }
 
-    dispatch({ action: "REMOVE_TOAST", payload: { id } });
+    dispatch({ type: "REMOVE_TOAST", payload: { id } });
   }, []);
 
-  const toastApi = useMemo(
+  const toastAPI = useMemo(
     () => ({
       success,
       warning,

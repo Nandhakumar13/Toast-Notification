@@ -1,10 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+
+import { ToastProvider } from "./components/ToastContext.jsx";
+import ToastContainer from "./components/ToastContainer.jsx";
+
+createRoot(document.getElementById("root")).render(
+  <ToastProvider>
     <App />
-  </StrictMode>,
-)
+    <ToastContainer />
+  </ToastProvider>,
+);

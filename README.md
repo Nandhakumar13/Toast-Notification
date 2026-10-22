@@ -322,21 +322,21 @@ The implementation will be developed incrementally.
 
 ### Phase 3: UI components
 
-- [ ] Build the individual Toast component.
-- [ ] Build the Toast Container.
-- [ ] Render the visible notification stack.
-- [ ] Add type-specific visual styles.
-- [ ] Implement the manual close button.
+- [^] Build the individual Toast component.
+- [^] Build the Toast Container.
+- [^] Render the visible notification stack.
+- [^] Add type-specific visual styles.
+- [^] Implement the manual close button.
 - [ ] Add responsive positioning and layout.
-- [ ] Add appropriate React keys and rendering safeguards.
-- [ ] Verify that pending notifications are not rendered prematurely.
+- [^] Add appropriate React keys and rendering safeguards.
+- [^] Verify that pending notifications are not rendered prematurely.
 
 ### Phase 4: Timer lifecycle
 
-- [ ] Implement automatic dismissal.
-- [ ] Apply the default duration.
-- [ ] Support per-notification duration overrides.
-- [ ] Support persistent notifications.
+- [^] Implement automatic dismissal.
+- [^] Apply the default duration.
+- [^] Support per-notification duration overrides.
+- [^] Support persistent notifications.
 - [ ] Start timers only when notifications become visible.
 - [ ] Clear timers when notifications unmount.
 - [ ] Verify timer behavior under React Strict Mode.
