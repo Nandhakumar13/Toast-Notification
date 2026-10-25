@@ -10,7 +10,11 @@ function TestHarness(){
     const toast = useContext(ToastAPIContext);
 
     return(
-        <button onClick={()=>{toast.success("Saved Successfully")}}>Save</button>
+        <>
+            <button onClick={()=>{toast.success("Saved Successfully")}}>Save</button>
+            <button onClick={() => toast.success("")}> Empty message </button>
+        </>
+        
     )
 }
 
@@ -27,5 +31,22 @@ describe("Toast notification system",()=>{
 
         await user.click(screen.getByRole("button",{name:"Save"}));
         expect(screen.getByText("Saved Successfully")).toBeInTheDocument();
+    })
+
+    it("rejected an empty toast message",async ()=>{
+        const user = userEvent.setup();
+
+        render(
+            <>
+                <ToastProvider>
+                    <TestHarness />
+                    <ToastContainer />
+                </ToastProvider>
+            </>
+        )
+
+        await user.click(screen.getByRole('button',{name:'Empty Message'}));
+
+        expect(screen.getByRole('button',{name:'Empty Message'})).toBeInTheDocument();
     })
 })
